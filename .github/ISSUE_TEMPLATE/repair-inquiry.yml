@@ -1,0 +1,46 @@
+name: Sanitized repair inquiry
+description: Request a scoped diagnosis using a minimal, non-private reproduction.
+title: "[Repair inquiry] "
+labels:
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload private, licensed, or unreleased game source to a public issue. Use a minimal reproduction or describe the failure.
+  - type: input
+    id: format
+    attributes:
+      label: Story format and version
+      placeholder: SugarCube 2.x / Twine 2.x
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction steps
+      description: List the starting passage, actions, and exact point of failure.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Paste console errors, variable snapshots, or a minimal public snippet. Remove private content.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope acknowledgement
+      options:
+        - label: I understand the first response is a diagnosis or quote, not a contract or completed repair.
+          required: true
+        - label: I have not posted private or unlicensed source material in this issue.
+          required: true
