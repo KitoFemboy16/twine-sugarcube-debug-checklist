@@ -75,6 +75,20 @@ The first response is a diagnosis or quote. It is not a contract and does not cl
 
 The Interactive Fiction Community Forum remains active around Twine and SugarCube tooling: https://intfiction.org/latest
 
+Open playtest request (observed 2026-08-31, posted 2026-08-29, author Mathael00): a choice-based SugarCube RPG is looking for testers to compare two versions of the same game — version A uses 1v1 combat, version B supports multiple enemies with target selection. The author asks testers to judge combat pacing, difficulty, target selection, and whether multi-enemy encounters justify their added complexity: https://intfiction.org/t/looking-for-playtesters-comparing-two-different-combat-systems-for-twine-sugarcube/81730
+
+### How to report on an A/B combat playtest
+
+If you take part, structure the comparison so the author can act on it:
+
+1. One line per encounter: where it happens, enemies faced, turns taken, outcome.
+2. Difficulty in player terms: where the first defeat happened and what you expected to happen instead.
+3. Target-selection friction: how many extra clicks or decisions multi-enemy fights added, and whether any of those choices ever felt meaningless.
+4. Answer the author's actual question with specifics: does multi-enemy add enough pacing variety or tactical choice to justify the extra UI complexity?
+5. Separate taste from friction. "I preferred version A" is taste; "in version B, selecting a second enemy cost three clicks per round" is a finding.
+
+That same habit — concrete, verifiable observations instead of "it's broken" — is what makes any SugarCube defect report reviewable. If a playtest surfaces a reproducible defect, this repository's issue form takes sanitized repair inquiries: a minimal reproduction, console output, and redacted variable snapshots. The first response is a diagnosis or quote; it is not a contract and does not claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
