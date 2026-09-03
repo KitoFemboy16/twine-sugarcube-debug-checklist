@@ -115,6 +115,19 @@ Forum thread (posted 2026-09-03T01:57Z by Sneaky_Proto, Twine 2.12.0 / SugarCube
 
 The same print-it-back habit is what makes a SugarCube defect report reviewable: if a menu-return or state bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract.
 
+### A five-day jam postmortem worth reading (observed 2026-09-03)
+
+Forum postmortem (posted 2026-09-03T14:59Z by dee_cooke): "A Bonded Postmortem" covers the making of *A Bonded Harvester*, an Iron ChIF 2026 entry built in five days. Process facts worth stealing: a first rough version went to testers at day 2.5, and those same testers then worked through several builds with the author. The post closes with a stats block — planned 29 running miles, ran 18; nightly sleep 8 → 4 hours — instead of a victory narrative. Thread: https://intfiction.org/t/a-bonded-postmortem-seasonal-spice-speed-grief-and-dice/81880
+
+#### How to write a jam postmortem others can act on
+
+1. Record plan vs. actual with numbers, not adjectives: the author's 29 planned / 18 run and 8 → 4 sleep lines say more than "it was intense" ever would.
+2. Send a rough build to testers early and iterate with the same testers through several builds, rather than saving testing for one big round at the end.
+3. Name the mechanic you deliberately tuned and the trade-off you accepted — here, dice tuned for colour rather than hindrance.
+4. State the constraint you worked under (five days, the jam ingredient unknown at planning time) so readers can judge how your advice transfers to their own constraints.
+
+The same record-plan-vs-actual, verify-at-each-step discipline is what makes a repair note reviewable. If a jam-produced or postmortem-surfaced SugarCube defect reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
