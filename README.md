@@ -102,6 +102,19 @@ Forum thread (posted 2026-09-02T08:41Z by Steve Evans / ybosde): the 2026 update
 
 The same claim-then-verify habit is what makes a SugarCube defect report reviewable. If a census-verified or playtest-surfaced reproducible defect appears, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract.
 
+### Return-loop from menus: the `<<script>>` scope trap (observed 2026-09-03)
+
+Forum thread (posted 2026-09-03T01:57Z by Sneaky_Proto, Twine 2.12.0 / SugarCube): moving from one menu to the next without returning to the main game caused a return-loop, and a `<<script>>` block assigning `$Return=previous();` never updated `$Return`. Reply (svlin, 2026-09-03T06:49Z): `$Return` is SugarCube markup, not JavaScript — inside a `<<script>>` block it is just text. Assign with `<<set $Return = previous()>>`, or inside the script use `State.variables.Return = previous()`. The reply also points to the "arbitrarily long return" recipe in the SugarCube documentation as the ready-made pattern for this exact problem. Thread: https://intfiction.org/t/how-to-dynamically-compare-the-tags-of-a-target-passage-and-any-future-passage/81869
+
+#### How to keep menu returns from misfiring
+
+1. Never assign story variables inside `<<script>>` with `$name` syntax. Markup does not execute there; use `State.variables.name` (JavaScript) or `<<set $name = ...>>` (markup). If the variable "never updates", suspect that the assignment never ran.
+2. Print the value back at the moment you assign it — `console.log(State.variables.Return)` or `<<= $Return>>` — so a silent no-op is visible immediately instead of surfacing as a wrong return target several clicks later.
+3. Decide which passages a return link is allowed to target before you store one: this author gated the assignment with `<<if !tags(previous()).includes("menu")>>`, which keeps menu passages from ever becoming a return destination.
+4. For longer histories, prefer a documented pattern (the docs' "arbitrarily long return") over an improvised variable, and record the source URL and date of any snippet you adopt so you can re-check it against the docs version you actually use.
+
+The same print-it-back habit is what makes a SugarCube defect report reviewable: if a menu-return or state bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
