@@ -141,6 +141,19 @@ Forum thread (posted 2026-09-03T22:25Z by DeusIrae, reviewing the IFComp 2026 en
 
 The same observe-don't-trust-the-reply habit is what makes a SugarCube defect report reviewable: if a feedback-mismatch or state bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
 
+### A standalone Android player split from a working bundle (observed 2026-09-04)
+
+Forum thread (posted 2026-09-04T13:04Z by Candy64): the MCIF Android native player app, previously always part of the complete package, is now downloadable as a standalone APK from the author's itch page (https://candy64.itch.io/mad-candy-interactive-fiction-studio). Four game cartridge files were uploaded for installation, including a Cloak of Darkness cartridge; the files can also be loaded and played in the studio, and the cartridge format is described as universal across the platforms. The post notes an Apple player release is theoretically possible but has not shipped because the author lacks the Apple hardware necessary to sign installation files. Thread: https://intfiction.org/t/mcif-android-app/81899
+
+#### How to test a build you are about to split or ship
+
+1. Install and launch the exact file you are shipping — the standalone APK, not the copy inside the bundle you already tested. A build that worked bundled proves nothing about the standalone artifact.
+2. Test the shared data path in both directions: load each shipped game file in the standalone player and in the studio. "Same universal format" is a claim; loading the same file in both targets is the check.
+3. Name the platforms you are not shipping and the reason (here: no Apple hardware to sign installation files) instead of implying them. "In theory possible" is not a shipped platform, and players plan around what is downloadable.
+4. Keep the distribution split visible — package page vs standalone page vs cartridge files — so players and testers report against the artifact they actually run.
+
+The same verify-the-shipped-artifact habit is what makes a SugarCube defect report reviewable: if a packaging, build-split, or save-file bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
