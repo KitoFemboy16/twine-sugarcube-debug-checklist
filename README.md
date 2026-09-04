@@ -128,6 +128,19 @@ Forum postmortem (posted 2026-09-03T14:59Z by dee_cooke): "A Bonded Postmortem" 
 
 The same record-plan-vs-actual, verify-at-each-step discipline is what makes a repair note reviewable. If a jam-produced or postmortem-surfaced SugarCube defect reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
 
+### Command feedback that proves nothing (observed 2026-09-04)
+
+Forum thread (posted 2026-09-03T22:25Z by DeusIrae, reviewing the IFComp 2026 entry WITHOUT corporation): the player cannot tell whether play is on track because the in-game hints are not especially helpful — current goals listed as "???", `get-hint` answering "run", manually invoked routines answered with "that's a bad idea" and `RUN ADVANCE` reporting an empty routine, and movement around the map doing nothing. Post 2 (iaraya): stuck at the same place; `GIVE-HINTS` still says "Run." when the routines are off, and it is unclear whether that is an instruction to the player or a machine message that the command has run. Post 4 (RowanMercer): "Run." reads as an in-world hint for the current scene, the machinery and the fiction layer both use the same terse language, and the advice is to re-trace room descriptions and newly-changed exits/objects after the last fourth-wall event rather than forcing the ADVANCE/CHASE routines directly. Thread: https://intfiction.org/t/without-corporation-hints/81887
+
+#### How to tell "the command ran" from "the state changed"
+
+1. Never accept a command's reply as evidence of effect. A response like "Run." can be an in-world hint, a refusal, or a no-op; the reply itself does not distinguish the three.
+2. Re-read observable state after every command: current goals, room description, exits, and any objects that changed after the last major event. If nothing moved, treat the command as a no-op regardless of what it said.
+3. Compare before/after snapshots instead of memory: capture the variables, passage, and visible exits before a suspicious command and diff them against after. The `console.table` capture in section 3 of this checklist is the smallest version of that habit.
+4. When a routine reports it is empty or unavailable, log which invocation produced the message and what state preceded it; re-running a failed routine and expecting a different outcome hides the precondition that was never met.
+
+The same observe-don't-trust-the-reply habit is what makes a SugarCube defect report reviewable: if a feedback-mismatch or state bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
