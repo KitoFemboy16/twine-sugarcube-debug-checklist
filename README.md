@@ -154,6 +154,19 @@ Forum thread (posted 2026-09-04T13:04Z by Candy64): the MCIF Android native play
 
 The same verify-the-shipped-artifact habit is what makes a SugarCube defect report reviewable: if a packaging, build-split, or save-file bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
 
+### Line breaks that shift between platforms (observed 2026-09-05)
+
+Forum thread (posted 2026-09-05T02:05Z by DavidC, with a reply from Daniel Stelzer): DavidC responded to a Planet-IF post about wrangling line breaks in Inform 7 from the Sharpee/Chord perspective, linking "Who draws the line break?" on the Sharpee blog (https://sharpee.plover.net/who-draws-the-line-break/). The blog's framing, quoted in the thread: an author's intended line breaks are apparently not what the author controls — "Apparently, not the Author" decides where lines break. A moderator asked whether the blog post was LLM-generated; DavidC answered that parts were researched by Claude but he wrote the bulk of it. Thread: https://intfiction.org/t/line-breaks-in-if-platforms/81908
+
+#### How to check line breaks across IF platforms
+
+1. Test in the renderer your audience actually uses, not only the one you author in. The same source text can break differently per platform; your own build is not the referee.
+2. When a paragraph looks wrong, first answer: is this a hard line break in the source, or a rendering decision by the platform? The two have different fixes.
+3. Read your game on a second platform (even once, even a phone) before release, and note any paragraph where the break moved. If a layout detail matters, say which platform it was checked on.
+4. Record the platform and version in your test notes, so a later "the text looks wrong" report can be compared against what you actually verified.
+
+The same "verify on the target, not the draft" habit is what makes a SugarCube defect report reviewable: if a layout or rendering bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
