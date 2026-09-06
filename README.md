@@ -180,6 +180,19 @@ Forum thread (posted 2026-09-06T05:15Z by bridgekhoang, with a reply from Parchm
 
 The same verify-the-shipped-artifact, re-verify-after-the-fix habit is what makes a SugarCube defect report reviewable: if a packaging, template, or load bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
 
+### Attach evidence to the issue, in the same command (observed 2026-09-06)
+
+GitHub changelog (2026-09-01): `gh` CLI v2.99.0 adds a repeatable `--attach` flag, generally available on all plans, that uploads a local image or video and references it inline in an issue, pull request, or comment body. Commands covered: `gh issue create/edit/comment`, `gh pr create/edit/comment`. A local path already referenced in the body is rewritten in place (alt text kept); attachments never referenced are appended at the end. Alt text follows the path after `#` (example: `--attach './login.png#The login error state'`). Formats: PNG, JPEG, GIF, WebP, SVG, MP4, MOV, WebM. Size limits match the web upload flow: 10 MB for images and GIFs, 10 MB video on Free plans, 100 MB video on paid plans. GitHub Enterprise Server is not supported in this release. Source: https://github.blog/changelog/2026-09-01-github-cli-media-in-issues-pull-requests-and-comments
+
+#### How to attach evidence to a bug report from the command line
+
+1. Attach the evidence in the same command that files the report: the screenshot lands with the report, so the issue shows the actual problem the first time instead of making every reader reproduce the fault from zero.
+2. Write alt text that describes the failure, not the filename: `--attach './login.png#The login error state'` — the alt text is what reviewers (and screen readers) meet first.
+3. Check which references were rewritten: a `![alt](./shot.png)` path that stayed a local path means the upload did not claim it, and the reader sees a broken image instead of your evidence; anything attached but never referenced lands appended at the end.
+4. Respect the limits before you post: 10 MB for images/GIFs, 10 MB video on Free plans (100 MB on paid plans), and GitHub Enterprise Server is not supported in this release — an upload that fails silently turns a one-message report into a second round-trip.
+
+The same capture-the-actual-result habit is what makes a SugarCube defect report reviewable — section 1 of this checklist asks for the actual result and console error before any code change. If a Twine/SugarCube bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots — and now, screenshots attached in the same command); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
