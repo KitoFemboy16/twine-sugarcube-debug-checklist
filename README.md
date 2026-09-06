@@ -167,6 +167,19 @@ Forum thread (posted 2026-09-05T02:05Z by DavidC, with a reply from Daniel Stelz
 
 The same "verify on the target, not the draft" habit is what makes a SugarCube defect report reviewable: if a layout or rendering bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
 
+### A release template that shipped broken (observed 2026-09-06)
+
+Forum thread (posted 2026-09-06T05:15Z by bridgekhoang, with a reply from Parchment maintainer Dannii): a game released with Parchment never got past the loading screen — the shipped `play.html` threw `Uncaught TypeError: can't access property "Dialog", this.options is undefined` — while the same game released with Quixe worked fine. Dannii confirmed the Parchment version bundled by Inform 10 was "unfortunately buggy" ("I've since improved testing to prevent this happening again") and pointed to updated Parchment-for-Inform-7 template releases; the author's first manual update attempt (unzipped materials into the project's `interpreter` subfolder) still did not load. Thread: https://intfiction.org/t/issue-releasing-with-parchment/81931
+
+#### How to verify a release that swaps or updates an interpreter template
+
+1. Test the released artifact, not the authoring preview: a game that runs in the compiler's preview or in a different interpreter (here Quixe) proves nothing about the template files you actually shipped.
+2. Read the browser console before deciding where the bug lives: a template-level TypeError ("this.options is undefined") points at the release files, not the story file.
+3. Confirm a template update by version, not by folder: dropping unzipped materials into an `interpreter` subfolder did not change what `play.html` loaded; check the version string the built page actually reports.
+4. Re-verify after every fix and record the template version and date: "updated the template" is a claim; the check is the new build loading past the screen where the old one stalled.
+
+The same verify-the-shipped-artifact, re-verify-after-the-fix habit is what makes a SugarCube defect report reviewable: if a packaging, template, or load bug reproduces, the issue form takes sanitized repair inquiries (minimal reproduction, console output, redacted variable snapshots); the first response is a diagnosis or quote, not a contract and not a claim that a repair has been completed.
+
 ## License
 
 The checklist is available under CC BY 4.0. See `LICENSE`.
